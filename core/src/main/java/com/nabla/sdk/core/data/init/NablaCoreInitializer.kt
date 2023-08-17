@@ -6,7 +6,6 @@ import android.os.Build
 import android.os.Bundle
 import androidx.startup.Initializer
 import com.nabla.sdk.core.Configuration
-import com.nabla.sdk.core.reporting.error.ErrorReportingInitializer
 
 public class NablaCoreInitializer : Initializer<Unit> {
     override fun create(context: Context) {
@@ -29,11 +28,6 @@ public class NablaCoreInitializer : Initializer<Unit> {
 
     override fun dependencies(): List<Class<out Initializer<*>>> {
         val dependencies = mutableListOf<Class<out Initializer<*>>>()
-        try {
-            dependencies.add(ErrorReportingInitializer::class.java)
-        } catch (noClassDefFoundError: NoClassDefFoundError) {
-            // reporting removed from runtime classpath
-        }
         return dependencies.toList()
     }
 }

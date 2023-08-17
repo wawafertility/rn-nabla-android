@@ -79,12 +79,7 @@ public class CoreContainer internal constructor(
     private val sessionTokenProvider: SessionTokenProvider,
 ) {
     public val logger: Logger = MutableCompositeLogger(configuration.logger)
-    public val errorReporter: ErrorReporter = if (configuration.enableReporting) {
-        reporterFactory?.create(logger) ?: NoOpErrorReporter()
-    } else {
-        NoOpErrorReporter()
-    }
-
+    public val errorReporter: ErrorReporter = NoOpErrorReporter();
     public val coreGqlMapper: CoreGqlMapper = CoreGqlMapper(logger)
 
     public val clock: Clock = overriddenClock ?: Clock.System

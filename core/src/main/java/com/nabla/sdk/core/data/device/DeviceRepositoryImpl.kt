@@ -68,11 +68,7 @@ internal class DeviceRepositoryImpl(
                     with(it.registerOrUpdateDevice) {
                         logger.debug("Device $deviceId registered/updated successfully", domain = LOG_DOMAIN)
                         installationDataSource.storeInstallId(deviceId, userId)
-                        if (sentry != null) {
-                            errorReporter.enable(dsn = sentry.dsn, env = sentry.env)
-                        } else {
-                            errorReporter.disable()
-                        }
+                        errorReporter.disable()
                     }
                 }
                 .onFailure { exception ->
