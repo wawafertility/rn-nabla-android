@@ -1,7 +1,6 @@
 package com.nabla.sdk.messagingsampleapp
 
 import android.app.Application
-import android.util.Log
 import com.nabla.sdk.core.NablaClient
 import com.nabla.sdk.core.domain.entity.AccessToken
 import com.nabla.sdk.core.domain.entity.AuthTokens
@@ -30,7 +29,7 @@ internal class MessagingSampleApp : Application() {
         try {
             NablaClient.getInstance().setCurrentUserOrThrow(userId = "dummy-user-id")
         } catch (e: AuthenticationException.CurrentUserAlreadySet) {
-            Log.w("MessagingSampleApp", "Current user already set", e)
+            // Log.w("MessagingSampleApp", "Current user already set", e)
         }
     }
 }

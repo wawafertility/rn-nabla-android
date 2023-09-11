@@ -42,7 +42,6 @@ import com.nabla.sdk.core.data.patient.ProviderRepositoryImpl
 import com.nabla.sdk.core.data.reporter.NoOpErrorReporter
 import com.nabla.sdk.core.domain.boundary.DeviceRepository
 import com.nabla.sdk.core.domain.boundary.ErrorReporter
-import com.nabla.sdk.core.domain.boundary.ErrorReporter.Companion.reporterFactory
 import com.nabla.sdk.core.domain.boundary.FileUploadRepository
 import com.nabla.sdk.core.domain.boundary.Logger
 import com.nabla.sdk.core.domain.boundary.LogoutInteractor
@@ -79,7 +78,7 @@ public class CoreContainer internal constructor(
     private val sessionTokenProvider: SessionTokenProvider,
 ) {
     public val logger: Logger = MutableCompositeLogger(configuration.logger)
-    public val errorReporter: ErrorReporter = NoOpErrorReporter();
+    public val errorReporter: ErrorReporter = NoOpErrorReporter()
     public val coreGqlMapper: CoreGqlMapper = CoreGqlMapper(logger)
 
     public val clock: Clock = overriddenClock ?: Clock.System
