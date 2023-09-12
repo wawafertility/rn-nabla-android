@@ -80,7 +80,7 @@ public class NablaAvatarView : ConstraintLayout {
                 }
             }
             useSingleLetterInPlaceHolder = typedArray.getBoolean(R.styleable.NablaAvatarView_nabla_useSingleLetterInPlaceHolder, false)
-            defaultBackgroundColor = typedArray.getColor(R.styleable.NablaAvatarView_nabla_defaultBackgroundColor, context.getThemeColor(MaterialR.attr.colorSurfaceVariant).asColorStateList(context).defaultColor)
+            defaultBackgroundColor = context.getThemeColor(MaterialR.attr.colorSurfaceVariant).asColorStateList(context).defaultColor // typedArray.getColor(R.styleable.NablaAvatarView_nabla_defaultBackgroundColor, context.getThemeColor(MaterialR.attr.colorSurfaceVariant).asColorStateList(context).defaultColor)
             defaultAvatarDrawable = typedArray.getDrawable(R.styleable.NablaAvatarView_nabla_defaultAvatarDrawable)
                 ?: ContextCompat.getDrawable(context, R.drawable.nabla_ic_outline_person)
                 ?: throw IllegalStateException("Unable to find nabla_ic_outline_person drawable").asNablaInternal()
