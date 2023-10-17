@@ -10,6 +10,7 @@ import com.nabla.sdk.core.domain.entity.InternalException.Companion.throwNablaIn
  * @param baseUrl Optional — base url for Nabla API server.
  * @param additionalHeadersProvider Optional — useful to append additional query headers to http calls.
  */
+@NablaInternal
 public data class NetworkConfiguration(
     internal val baseUrl: String = "https://api.nabla.com/",
     internal val webSocketUrl: String? = null,

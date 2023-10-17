@@ -19,10 +19,12 @@ public class Configuration(
     internal val publicApiKey: String = defaultPublicApiKey ?: throw ConfigurationException.MissingApiKey(),
     public val logger: Logger = LogcatLogger(),
     public val enableReporting: Boolean = false,
-    public val networkConfiguration: NetworkConfiguration = NetworkConfiguration()
 ) {
     @NablaInternal
     public val context: Context = context.applicationContext
+
+    @NablaInternal
+    public var networkConfiguration: NetworkConfiguration = NetworkConfiguration()
 
     @NablaInternal
     public companion object {
