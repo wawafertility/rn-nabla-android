@@ -159,6 +159,9 @@ public class CoreContainer internal constructor(
                 } else {
                     webSocketEngine(websocketEngine)
                 }
+                if(networkConfiguration.webSocketUrl != null) {
+                    webSocketServerUrl(networkConfiguration.webSocketUrl)
+                }
             }
             .apply { overriddenApolloConfig?.let { it(this) } }
             .build()
